@@ -31,7 +31,7 @@ services:
             - '3307:3306'
         volumes:
             - ./db_data:/var/lib/mysql
-
+            - ./dumps:/docker-entrypoint-initdb.d
     nginx:
         container_name: nginx
         image: nginx:alpine

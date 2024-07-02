@@ -52,5 +52,8 @@ RUN apt-get -y install --fix-missing \
 #     && docker-php-ext-configure pgsql -with-pgsql=/usr/local/pgsql \
 #     && docker-php-ext-install pdo pdo_pgsql pgsql
 
-RUN chown -R www-data:www-data /var/www
-USER www-data
+RUN useradd ifdancoder \
+  && usermod -u 1000 ifdancoder \
+  && groupmod -g 1000 ifdancoder
+
+USER ifdancoder
